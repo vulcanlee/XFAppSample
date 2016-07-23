@@ -13,6 +13,7 @@ namespace XFHocKey
         public LoginPage()
         {
             InitializeComponent();
+
         }
 
         public async void Onbutton登入Clicked(object sender, EventArgs e)
