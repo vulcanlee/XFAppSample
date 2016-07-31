@@ -46,6 +46,23 @@ namespace XFCreative.ViewModels
 
         public async Task 系統初始化()
         {
+            var fooItems = await GlobalData.系統紀錄Repository.資料表.GetAllAsync();
+            if (fooItems.Count == 1)
+            {
+
+            }
+            else
+            {
+                foreach (var item in fooItems)
+                {
+                    await GlobalData.系統紀錄Repository.資料表.DeleteAsync(item);
+                }
+
+                await GlobalData.系統紀錄Repository.資料表.InsertAsync(new 系統紀錄
+                {
+                    篩選城市 = "高雄市"
+                });
+            }
             await GlobalData.創業空間Repository.取得最新資料();
         }
     }

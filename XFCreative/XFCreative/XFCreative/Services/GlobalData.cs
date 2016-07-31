@@ -10,6 +10,7 @@ namespace XFCreative.Services
  public   class GlobalData
     {
         public static 創業空間Repository 創業空間Repository= new 創業空間Repository();
+        public static 系統紀錄Repository 系統紀錄Repository = new 系統紀錄Repository();
 
         public static string 執行篩選資料 = "執行篩選資料";
 

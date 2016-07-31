@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using XFCreative.Models;
 using XFCreative.Services;
+using System.Linq;
 
 namespace XFCreative.ViewModels
 {
@@ -68,13 +69,17 @@ namespace XFCreative.ViewModels
             if (parameters.ContainsKey("title"))
                 Title = (string)parameters["title"] + " ...";
 
-            //await 系統初始化();
+            await 系統初始化();
         }
 
         public async Task 系統初始化()
         {
             創業空間Nodes.Clear();
-            foreach (var item in GlobalData.創業空間Repository.Items)
+            var fooItems = await GlobalData.系統紀錄Repository.資料表.GetAllAsync();
+            var fooIt = fooItems.FirstOrDefault();
+            var foo創業空間s = GlobalData.創業空間Repository.Items.Where(x => x.縣市區域 == fooIt.篩選城市);
+
+            foreach (var item in foo創業空間s)
             {
                 var fooItem = new 創業空間NodeViewModel()
                 {
@@ -107,8 +112,13 @@ namespace XFCreative.ViewModels
             await _navigationService.Navigate("BusinessSpaceDetailPage", foo創業空間Selected);
         }
 
-        private void 需要篩選資料HandleEvent(string obj)
+        private async void 需要篩選資料HandleEvent(string obj)
         {
+            var fooPItems = await GlobalData.系統紀錄Repository.資料表.GetAllAsync();
+            var fooIt = fooPItems.FirstOrDefault();
+            fooIt.篩選城市 = obj;
+            await GlobalData.系統紀錄Repository.資料表.UpdateAsync(fooIt);
+
             創業空間Nodes = new ObservableCollection<創業空間NodeViewModel>();
             var fooItems = GlobalData.創業空間Repository.Items.Where(x => x.縣市區域 == obj);
             foreach (var item in fooItems)

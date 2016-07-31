@@ -20,6 +20,7 @@ namespace XFCreative
             Container.RegisterTypeForNavigation<BusinessSpaceDetailPage>();
             Container.RegisterTypeForNavigation<WebView更多資訊Page>();
             Container.RegisterTypeForNavigation<SelectCityPage>();
+           
         }
     }
 }
