@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.ExternalMaps;
 using Plugin.Messaging;
 using Plugin.Share;
 using Prism.Commands;
@@ -142,7 +143,12 @@ namespace XFCreative.ViewModels
 
         private async void 查看地圖()
         {
-            await _dialogService.DisplayAlert("抱歉", $"此功能尚未建置", "確定");
+            if(string.IsNullOrEmpty(創業空間明細.座標經度) == false && string.IsNullOrEmpty(創業空間明細.座標緯度)==false)
+            {
+                var fooLat = Convert.ToDouble(創業空間明細.座標緯度);
+                var fooLon = Convert.ToDouble(創業空間明細.座標經度);
+                var success = await CrossExternalMaps.Current.NavigateTo(創業空間明細.創業空間名稱, fooLat, fooLon, Plugin.ExternalMaps.Abstractions.NavigationType.Default);
+            }
         }
 
         private void 撥打電話()

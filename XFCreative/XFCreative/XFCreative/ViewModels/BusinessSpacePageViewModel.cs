@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using XFCreative.Models;
 using XFCreative.Services;
 using System.Linq;
+using Plugin.Share;
+using Plugin.ExternalMaps;
 
 namespace XFCreative.ViewModels
 {
