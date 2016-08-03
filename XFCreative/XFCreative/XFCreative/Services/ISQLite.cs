@@ -10,5 +10,6 @@ namespace XFCreative.Services
     public interface ISQLite
     {
         SQLiteConnection GetConnection();
+        SQLiteAsyncConnection GetConnectionAsync();
     }
 }

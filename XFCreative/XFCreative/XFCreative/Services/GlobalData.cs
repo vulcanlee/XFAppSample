@@ -13,6 +13,7 @@ namespace XFCreative.Services
         public static 系統紀錄Repository 系統紀錄Repository = new 系統紀錄Repository();
 
         public static string 執行篩選資料 = "執行篩選資料";
+        public static string DBName = "DoggyDB.db3";
 
     }
 }

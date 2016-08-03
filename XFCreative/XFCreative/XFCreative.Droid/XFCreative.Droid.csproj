@@ -224,6 +224,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\drawable\info.png" />
+    <AndroidResource Include="Resources\drawable\web.png" />
+    <AndroidResource Include="Resources\drawable\search.png" />
+    <AndroidResource Include="Resources\drawable\refresh.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFCreative\XFCreative.csproj">

@@ -34,6 +34,17 @@
       Orientation="Vertical"
       Margin="20,0"
       >
+      <Image
+        Margin="0,20,0,20"
+        >
+        <Image.Source>
+          <OnPlatform x:TypeArguments="ImageSource"
+            iOS="info.png" 
+            Android="info.png"
+            WinPhone="refresh/info.png" />
+        </Image.Source>
+
+      </Image>
       <Label
         Text="創業空間名稱"
         VerticalOptions="Center" HorizontalOptions="Start"

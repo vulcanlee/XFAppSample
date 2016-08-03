@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using SQLite;
 using Xamarin.Forms;
 using XFCreative.iOS.Services;
 using XFCreative.Services;
@@ -18,16 +19,31 @@ namespace XFCreative.iOS.Services
         #region ISQLite implementation
         public SQLite.SQLiteConnection GetConnection()
         {
-            var sqliteFilename = "DoggyDB.db3";
-            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // Documents folder
-            string libraryPath = Path.Combine(documentsPath, "..", "Library"); // Library folder
-            var path = Path.Combine(libraryPath, sqliteFilename);
+            var path = GetDBPath();
 
             var conn = new SQLite.SQLiteConnection(path);
 
             // Return the database connection 
             return conn;
         }
+
+        public SQLiteAsyncConnection GetConnectionAsync()
+        {
+            var path = GetDBPath();
+            var asyncDb = new SQLiteAsyncConnection(path);
+            // Return the database connection 
+            return asyncDb;
+        }
+
         #endregion
+
+        public string GetDBPath()
+        {
+            var sqliteFilename = GlobalData.DBName;
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); // Documents folder
+            string libraryPath = Path.Combine(documentsPath, "..", "Library"); // Library folder
+            var path = Path.Combine(libraryPath, sqliteFilename);
+            return path;
+        }
     }
 }

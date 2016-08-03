@@ -9,8 +9,30 @@
   Title="創業空間清單"
   >
   <ContentPage.ToolbarItems>
-    <ToolbarItem Command="{Binding 搜尋Command}" Text="搜尋" Order="Primary" Priority="0" />
-    <ToolbarItem Command="{Binding RefreshDataCommand}" Text="重新整理" Order="Primary" Priority="0" />
+    <ToolbarItem
+      Command="{Binding 搜尋Command}"
+      Text="搜尋"
+      Order="Primary"
+      Priority="0">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+          iOS="search.png"
+          Android="search.png"
+          WinPhone="Assets/search.png" />
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+    <ToolbarItem
+      Command="{Binding RefreshDataCommand}"
+      Text="重新整理"
+      Order="Primary"
+      Priority="0">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+          iOS="refresh.png"
+          Android="refresh.png"
+          WinPhone="refresh/search.png" />
+      </ToolbarItem.Icon>
+    </ToolbarItem>
   </ContentPage.ToolbarItems>
 
   <Grid
@@ -31,10 +53,14 @@
         <DataTemplate>
           <ViewCell>
             <ViewCell.ContextActions>
-              <MenuItem Command="{Binding 查看地圖Command}" CommandParameter="{Binding .}"
-                 Text="查看地圖" />
-              <MenuItem Command="{Binding 查看官網Command}" CommandParameter="{Binding .}"
-                 Text="查看官網" IsDestructive="True" />
+              <MenuItem
+                Command="{Binding 查看地圖Command}"
+                CommandParameter="{Binding .}"
+                Text="查看地圖" />
+              <MenuItem
+                Command="{Binding 查看官網Command}"
+                CommandParameter="{Binding .}"
+                Text="查看官網" IsDestructive="True" />
             </ViewCell.ContextActions>
             <ViewCell.View>
               <Grid
