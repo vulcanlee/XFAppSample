@@ -41,6 +41,4 @@ namespace XFCreative.Models
         public DateTime 建立時間 { get; set; }
         public DateTime 修改時間 { get; set; }
     }
-
-
 }
