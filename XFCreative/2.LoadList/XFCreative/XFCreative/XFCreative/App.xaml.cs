@@ -9,12 +9,14 @@ namespace XFCreative
         {
             InitializeComponent();
 
-            NavigationService.Navigate("MainPage?title=Hello%20from%20Xamarin.Forms");
+            NavigationService.Navigate("MainPage?title=請稍後，正在更新資料");
         }
 
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<HomePage>();
+            Container.RegisterTypeForNavigation<BusinessSpacePage>();
         }
     }
 }

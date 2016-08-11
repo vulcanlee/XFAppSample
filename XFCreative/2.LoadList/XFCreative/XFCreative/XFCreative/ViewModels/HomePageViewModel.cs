@@ -1,18 +1,14 @@
-﻿using Newtonsoft.Json;
-using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
-using XFCreative.Models;
-using XFCreative.Services;
 
 namespace XFCreative.ViewModels
 {
-    public class MainPageViewModel : BindableBase, INavigationAware
+    public class HomePageViewModel : BindableBase, INavigationAware
     {
         private readonly INavigationService _navigationService;
 
@@ -23,7 +19,7 @@ namespace XFCreative.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public MainPageViewModel(INavigationService navigationService)
+        public HomePageViewModel(INavigationService navigationService)
         {
             // 取得頁面導航的實作
             _navigationService = navigationService;
@@ -40,13 +36,11 @@ namespace XFCreative.ViewModels
                 Title = (string)parameters["title"] + " ...";
 
             await 系統初始化();
-
-            await _navigationService.Navigate("/HomePage/BusinessSpacePage");
         }
 
         public async Task 系統初始化()
         {
-            await GlobalData.創業空間Repository.取得最新資料();
         }
+
     }
 }
