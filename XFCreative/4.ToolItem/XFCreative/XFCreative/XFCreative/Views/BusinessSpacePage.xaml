@@ -8,6 +8,7 @@
   x:Class="XFCreative.Views.BusinessSpacePage"
   Title="創業空間清單"
   >
+
   <ContentPage.ToolbarItems>
     <ToolbarItem
       Command="{Binding 搜尋Command}"
@@ -41,8 +42,8 @@
       x:Name="listview創業空間"
       ItemsSource="{Binding 創業空間Nodes, Mode=TwoWay}"
       SelectedItem="{Binding 創業空間Selected, Mode=TwoWay}"
-      RowHeight="100"
       CachingStrategy="RecycleElement"
+      RowHeight="100"
       >
       <ListView.Behaviors>
         <behaviors:EventHandlerBehavior EventName="ItemTapped">
@@ -73,18 +74,14 @@
                 <Grid.RowDefinitions>
                   <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image
-                  Grid.Row="0" Grid.Column="0"
-                  Source="{Binding 空間主照片}"
-                  Aspect="Fill"
-                  HorizontalOptions="Center" VerticalOptions="Center"
+                <Label
+                  Text ="{Binding 縣市區域}"
+                  Margin="0,0,0,0"
+                  FontSize="36"
+                  HorizontalOptions="Start" VerticalOptions="Start"
+                  HorizontalTextAlignment="Center"
+                  LineBreakMode="WordWrap"
                     />
-                <!--<Image
-                  Grid.Row="0" Grid.Column="0"
-                  Source="{Binding 空間主照片, Converter={StaticResource StringToImageConverter}}"
-                  Aspect="Fill"
-                  HorizontalOptions="Center" VerticalOptions="Center"
-                    />-->
 
                 <StackLayout
                   Grid.Row="0" Grid.Column="1"

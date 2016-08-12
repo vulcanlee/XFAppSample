@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Plugin.ExternalMaps;
+﻿using Plugin.ExternalMaps;
 using Plugin.Share;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -10,12 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using XFCreative.Services;
 
-namespace XFCreative.Models
+namespace XFCreative.ViewModels
 {
     public class 創業空間NodeViewModel : BindableBase
     {
         public DelegateCommand<創業空間NodeViewModel> 查看地圖Command { get; set; }
         public DelegateCommand<創業空間NodeViewModel> 查看官網Command { get; set; }
+
+        #region 縣市區域
+        private string _縣市區域;
+        public string 縣市區域
+        {
+            get { return _縣市區域; }
+            set { SetProperty(ref _縣市區域, value); }
+        }
+        #endregion
 
         #region 創業空間名稱
         private string _創業空間名稱;
@@ -52,7 +60,8 @@ namespace XFCreative.Models
         public string 地址
         {
             get { return _地址; }
-            set { SetProperty(ref _地址, value); }        }
+            set { SetProperty(ref _地址, value); }
+        }
 
         #endregion
 
