@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFCreative", "XFCreative\XFCreative\XFCreative.csproj", "{1559BDC2-4B5A-465B-98F9-8078C6422976}"
 EndProject
@@ -180,6 +180,7 @@ Global
 		{8C9C0EB3-2169-4EEB-888C-A4BAB1609554}.AppStore|x64.ActiveCfg = AppStore|iPhone
 		{8C9C0EB3-2169-4EEB-888C-A4BAB1609554}.AppStore|x86.ActiveCfg = AppStore|iPhone
 		{8C9C0EB3-2169-4EEB-888C-A4BAB1609554}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{8C9C0EB3-2169-4EEB-888C-A4BAB1609554}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{8C9C0EB3-2169-4EEB-888C-A4BAB1609554}.Debug|ARM.ActiveCfg = Debug|iPhone
 		{8C9C0EB3-2169-4EEB-888C-A4BAB1609554}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{8C9C0EB3-2169-4EEB-888C-A4BAB1609554}.Debug|iPhone.Build.0 = Debug|iPhone
@@ -232,6 +233,7 @@ Global
 		{0DDC7575-20F2-4081-A687-0725FC281C5D}.AppStore|x86.Build.0 = Release|x86
 		{0DDC7575-20F2-4081-A687-0725FC281C5D}.AppStore|x86.Deploy.0 = Release|x86
 		{0DDC7575-20F2-4081-A687-0725FC281C5D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0DDC7575-20F2-4081-A687-0725FC281C5D}.Debug|Any CPU.Build.0 = Debug|x86
 		{0DDC7575-20F2-4081-A687-0725FC281C5D}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{0DDC7575-20F2-4081-A687-0725FC281C5D}.Debug|ARM.ActiveCfg = Debug|ARM
 		{0DDC7575-20F2-4081-A687-0725FC281C5D}.Debug|ARM.Build.0 = Debug|ARM

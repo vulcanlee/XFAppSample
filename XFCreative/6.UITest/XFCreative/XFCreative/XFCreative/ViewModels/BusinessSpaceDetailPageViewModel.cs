@@ -21,7 +21,6 @@ namespace XFCreative.ViewModels
         private readonly INavigationService _navigationService;
         public readonly IPageDialogService _dialogService;
 
-
         public DelegateCommand 查看空間資訊Command { get; set; }
         public DelegateCommand 查看價格方案Command { get; set; }
         public DelegateCommand 查看地圖Command { get; set; }

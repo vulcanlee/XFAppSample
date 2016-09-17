@@ -41,7 +41,7 @@ namespace XFCreative.ViewModels
 
             await 系統初始化();
 
-            await _navigationService.Navigate("/HomePage/BusinessSpacePage");
+            await _navigationService.Navigate("http://vulcan.lab/HomePage/BusinessSpacePage");
         }
 
         public async Task 系統初始化()
