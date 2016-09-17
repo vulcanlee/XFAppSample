@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XFDoggy.Views.TravelExpensesPage"
              BackgroundColor="{StaticResource PageBackgroundColor}"
-             Title="差旅費用新增"
+             Title=""
              >
 
   <ContentPage.ToolbarItems>
@@ -16,9 +16,9 @@
       Priority="0">
       <ToolbarItem.Icon>
         <OnPlatform x:TypeArguments="FileImageSource"
-          iOS="search.png"
-          Android="search.png"
-          WinPhone="Assets/search.png" />
+                     iOS="Save.png"
+                     Android="Save.png"
+                     WinPhone="Assets/Images/Save.png" />
       </ToolbarItem.Icon>
     </ToolbarItem>
   </ContentPage.ToolbarItems>
@@ -37,7 +37,7 @@
     Margin="20">
     <StackLayout
       Orientation="Vertical"
-      Spacing="0">
+      >
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="{StaticResource LablWidth}"/>
@@ -123,11 +123,21 @@
         />
       </Grid>
       <Button Text="刪除"
+              Margin="0,30,0,0"
               Command="{Binding 刪除Command}"
               IsVisible="{Binding ShowDeleteMode}"
-              BackgroundColor="#f08915"
+              BackgroundColor="{StaticResource ButtonBackgroundColor}"
               TextColor="#FFF"
-              />
+              WidthRequest="250" HeightRequest="40"
+              HorizontalOptions="Center"
+              >
+        <!--<Button.Image>
+          <OnPlatform x:TypeArguments="FileImageSource"
+                       iOS="Delete.png"
+                       Android="Delete.png"
+                       WinPhone="Assets/Images/Delete.png" />
+        </Button.Image>-->
+      </Button>
       <BoxView HeightRequest="80" Color="Transparent" />
     </StackLayout>
   </ScrollView>

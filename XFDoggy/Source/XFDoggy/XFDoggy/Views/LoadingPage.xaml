@@ -9,6 +9,6 @@
     <OnPlatform x:TypeArguments="x:String"
               iOS="Loading.png"
               Android="Loading.png"
-              WinPhone="/Assets/Images/Loading.png" />
+              WinPhone="Assets/Images/Loading.png" />
   </ContentPage.BackgroundImage>
 </ContentPage>

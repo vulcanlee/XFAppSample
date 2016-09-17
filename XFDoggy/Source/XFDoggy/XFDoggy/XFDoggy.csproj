@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Helps\AppData.cs" />
     <Compile Include="Infrastructure\CRUDEvent.cs" />
+    <Compile Include="Infrastructure\IDebugMode.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\TravelExpensesCategory.cs" />
     <Compile Include="Models\TravelExpense.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="ViewModels\TravelExpensesListItemViewModel.cs" />
     <Compile Include="ViewModels\TravelExpensesListPageViewModel.cs" />
     <Compile Include="ViewModels\TravelExpensesPageViewModel.cs" />
+    <Compile Include="ViewModels\wait.cs" />
     <Compile Include="Views\MainMDPage.xaml.cs">
       <DependentUpon>MainMDPage.xaml</DependentUpon>
     </Compile>

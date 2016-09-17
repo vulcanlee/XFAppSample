@@ -18,7 +18,7 @@
           <Style x:Key="MenuItemLevel1Style" TargetType="Label">
             <Setter Property="HorizontalOptions" Value="Start" />
             <Setter Property="VerticalOptions" Value="Center" />
-            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="FontSize" Value="16" />
             <Setter Property="TextColor" Value="Black" />
             <Setter Property="Margin" Value="35,10,0,0" />
           </Style>
@@ -36,7 +36,7 @@
         VerticalOptions="FillAndExpand">
 
         <Grid>
-          <Image >
+          <Image>
             <Image.Source>
               <OnPlatform x:TypeArguments="ImageSource">
                 <OnPlatform.iOS>
@@ -53,6 +53,8 @@
           </Image>
 
           <Image Margin="15,15,0,0"
+                 WidthRequest="64" HeightRequest="64"
+                 Aspect="Fill"
                  HorizontalOptions="Start" VerticalOptions="Start"
             >
             <Image.Source>
@@ -76,8 +78,10 @@
                  />
         </Grid>
         <Label
+          Margin="35,30,0,0"
           Text ="差旅費用申請"
           Style="{StaticResource MenuItemLevel1Style}"
+          TextColor="{Binding 差旅費用申請Color}"
           >
           <Label.GestureRecognizers>
             <TapGestureRecognizer
@@ -87,6 +91,7 @@
         <Label
           Text ="登出"
           Style="{StaticResource MenuItemLevel1Style}"
+          TextColor="{Binding 登出Color}"
           >
           <Label.GestureRecognizers>
             <TapGestureRecognizer

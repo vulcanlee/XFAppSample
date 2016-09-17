@@ -24,6 +24,8 @@ namespace XFDoggy.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            // 需要加入這行解決無法載入組建的問題
+            var fooBehaviorBase = new Behaviors.BehaviorBase<Xamarin.Forms.ListView>();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
 

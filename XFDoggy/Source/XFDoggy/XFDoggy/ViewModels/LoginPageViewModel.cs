@@ -6,13 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using XFDoggy.Helps;
+using XFDoggy.Infrastructure;
 
 namespace XFDoggy.ViewModels
 {
     public class LoginPageViewModel : BindableBase
     {
         private readonly INavigationService _navigationService;
-
+        private IDebugMode _debugMode;
         public readonly IPageDialogService _dialogService;
 
         #region Account
@@ -42,15 +43,19 @@ namespace XFDoggy.ViewModels
 
         public DelegateCommand 登入Command { get; private set; }
 
-        public LoginPageViewModel(INavigationService navigationService, IPageDialogService dialogService)
+        public LoginPageViewModel(INavigationService navigationService, IPageDialogService dialogService,
+            IDebugMode debugMode)
         {
             _navigationService = navigationService;
-
+            _debugMode = debugMode;
             _dialogService = dialogService;
 
             登入Command = new DelegateCommand(登入);
-            Account = "001";
-            Password = "901";
+            if (_debugMode.IsDebugMode() == true)
+            {
+                Account = "001";
+                Password = "901";
+            }
         }
 
         private async void 登入()
@@ -66,6 +71,7 @@ namespace XFDoggy.ViewModels
                 AppData.Account = Account;
                 var fooItems = (await AppData.DataService.GetTravelExpensesAsync(AppData.Account)).ToList();
                 AppData.AllTravelExpense = fooItems;
+                AppData.正在執行功能 = 執行功能列舉.差旅費用申請;
                 await _navigationService.NavigateAsync("xf:///MainMDPage/NaviPage/TravelExpensesListPage");
             }
             else
