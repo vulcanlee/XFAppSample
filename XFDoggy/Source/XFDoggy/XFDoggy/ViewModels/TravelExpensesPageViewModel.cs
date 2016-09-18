@@ -319,13 +319,13 @@ namespace XFDoggy.ViewModels
             if (紀錄處理模式 == "新增")
             {
                 ShowDeleteMode = false;
-                foo頁面Title初始化("新增");
+                foo頁面Title初始化("差旅費用 新增");
             }
             else
             {
                 ShowDeleteMode = true;
                 foo分類Picker初始化(fooTravelExpense.Category);
-                foo頁面Title初始化("修改");
+                foo頁面Title初始化("差旅費用 修改");
             }
         }
 

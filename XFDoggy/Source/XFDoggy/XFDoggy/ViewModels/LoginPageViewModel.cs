@@ -72,7 +72,7 @@ namespace XFDoggy.ViewModels
                 var fooItems = (await AppData.DataService.GetTravelExpensesAsync(AppData.Account)).ToList();
                 AppData.AllTravelExpense = fooItems;
                 AppData.正在執行功能 = 執行功能列舉.差旅費用申請;
-                await _navigationService.NavigateAsync("NaviPage/TravelExpensesListPage");
+                await _navigationService.NavigateAsync("xf:///MainMDPage/NaviPage/TravelExpensesListPage");
             }
             else
             {
