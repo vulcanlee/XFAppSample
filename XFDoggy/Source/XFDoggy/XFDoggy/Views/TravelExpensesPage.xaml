@@ -5,6 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XFDoggy.Views.TravelExpensesPage"
              BackgroundColor="{StaticResource PageBackgroundColor}"
+             NavigationPage.HasBackButton="False"
              Title=""
              >
 
@@ -21,6 +22,18 @@
                      WinPhone="Assets/Images/Save.png" />
       </ToolbarItem.Icon>
     </ToolbarItem>
+    <ToolbarItem
+      Command="{Binding 取消Command}"
+      Text="取消"
+      Order="Primary"
+      Priority="0">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                     iOS="Cancel.png"
+                     Android="Cancel.png"
+                     WinPhone="Assets/Images/Cancel.png" />
+      </ToolbarItem.Icon>
+    </ToolbarItem>
   </ContentPage.ToolbarItems>
 
   <ContentPage.Resources>
@@ -32,104 +45,114 @@
     </ResourceDictionary>
   </ContentPage.Resources>
 
-  <ScrollView
-    Orientation="Vertical"
-    Margin="20">
-    <StackLayout
-      Orientation="Vertical"
+  <StackLayout>
+    <ScrollView
+  Orientation="Vertical"
+  Margin="20">
+      <StackLayout
+        Orientation="Vertical"
       >
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="日期" Grid.Column="0" Style="{StaticResource LabelStyle}" />
-        <DatePicker Grid.Column="1"
-          Date="{Binding TravelDate, Mode=TwoWay}"
-          Format="yyyy-MM-dd"
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="日期" Grid.Column="0" Style="{StaticResource LabelStyle}" />
+          <DatePicker Grid.Column="1"
+            Date="{Binding TravelDate, Mode=TwoWay}"
+            Format="yyyy-MM-dd"
         />
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="類型" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
-        <Picker Grid.Column="1"
-          x:Name="picker分類"
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="類型" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+          <Picker Grid.Column="1"
+            x:Name="picker分類"
         />
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="名稱" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
-        <Entry Grid.Column="1"
-          Text="{Binding Title, Mode=TwoWay}"
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="名稱" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+          <Entry Grid.Column="1"
+            Text="{Binding Title, Mode=TwoWay}"
         />
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="地點" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
-        <Entry Grid.Column="1"
-          Text="{Binding Location, Mode=TwoWay}"
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="地點" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+          <Entry Grid.Column="1"
+            Text="{Binding Location, Mode=TwoWay}"
         />
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="費用" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
-        <Entry Grid.Column="1"
-          Text="{Binding Expense, Mode=TwoWay}"
-          Keyboard="Numeric"
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="費用" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+          <Entry Grid.Column="1"
+            Text="{Binding Expense, Mode=TwoWay}"
+            Keyboard="Numeric"
         />
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="備註" Grid.Column="0" Style="{StaticResource LabelStyle}"
-               VerticalOptions="Start"/>
-        <Editor Grid.Column="1"
-          Text="{Binding Memo, Mode=TwoWay}"
-          HeightRequest="300"
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="備註" Grid.Column="0" Style="{StaticResource LabelStyle}"
+                 VerticalOptions="Start"/>
+          <Editor Grid.Column="1"
+            Text="{Binding Memo, Mode=TwoWay}"
+            HeightRequest="300"
         />
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="國內" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
-        <Switch Grid.Column="1"
-          IsToggled="{Binding Domestic, Mode=TwoWay}"
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="國內" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+          <Switch Grid.Column="1"
+            IsToggled="{Binding Domestic, Mode=TwoWay}"
         />
-      </Grid>
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="{StaticResource LablWidth}"/>
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Label Text="單據" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
-        <Switch Grid.Column="1"
-          IsToggled="{Binding HasDocument, Mode=TwoWay}"
+        </Grid>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{StaticResource LablWidth}"/>
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Label Text="單據" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+          <Switch Grid.Column="1"
+            IsToggled="{Binding HasDocument, Mode=TwoWay}"
         />
-      </Grid>
+        </Grid>
+        <BoxView HeightRequest="80" Color="Transparent" />
+      </StackLayout>
+    </ScrollView>
+    <Grid
+      IsVisible="{Binding ShowDeleteMode}" 
+      >
+      <BoxView
+        HeightRequest="70"
+        Color="{StaticResource BottomCommandBackgroundColor}"
+        />
       <Button Text="刪除"
-              Margin="0,30,0,0"
-              Command="{Binding 刪除Command}"
-              IsVisible="{Binding ShowDeleteMode}"
-              BackgroundColor="{StaticResource ButtonBackgroundColor}"
-              TextColor="#FFF"
-              WidthRequest="250" HeightRequest="40"
-              HorizontalOptions="Center"
+             Margin="0,0,0,0"
+             Command="{Binding 刪除Command}"             
+             BackgroundColor="{StaticResource ToolbarBackgroundColor}"
+             TextColor="#FFF"
+             WidthRequest="250" HeightRequest="40"
+             HorizontalOptions="Center"
               >
         <!--<Button.Image>
           <OnPlatform x:TypeArguments="FileImageSource"
@@ -138,7 +161,6 @@
                        WinPhone="Assets/Images/Delete.png" />
         </Button.Image>-->
       </Button>
-      <BoxView HeightRequest="80" Color="Transparent" />
-    </StackLayout>
-  </ScrollView>
+    </Grid>
+  </StackLayout>
 </ContentPage>

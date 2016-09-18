@@ -20,6 +20,11 @@ namespace XFDoggy.Views
             fooTravelExpensesPageViewModel.foo頁面Title初始化 = 頁面Title初始化;
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         private void 頁面Title初始化(string obj)
         {
             this.Title = obj;

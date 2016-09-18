@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\Add.png" />
+    <Content Include="Assets\Images\Cancel.png" />
     <Content Include="Assets\Images\Delete.png" />
     <Content Include="Assets\Images\Loading.png" />
     <Content Include="Assets\Images\Logo.png" />

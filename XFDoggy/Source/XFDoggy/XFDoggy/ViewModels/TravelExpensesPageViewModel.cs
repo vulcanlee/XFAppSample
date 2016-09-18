@@ -8,6 +8,8 @@ using System.Linq;
 using XFDoggy.Helps;
 using XFDoggy.Infrastructure;
 using XFDoggy.Models;
+using System.Threading.Tasks;
+using Prism.Services;
 
 namespace XFDoggy.ViewModels
 {
@@ -178,22 +180,83 @@ namespace XFDoggy.ViewModels
         public string 紀錄處理模式 { get; set; }
         private readonly INavigationService _navigationService;
 
+        public readonly IPageDialogService _dialogService;
         private readonly IEventAggregator _eventAggregator;
         public DelegateCommand 儲存Command { get; private set; }
         public DelegateCommand 刪除Command { get; private set; }
+        public DelegateCommand 取消Command { get; private set; }
 
         public delegate string 讀取Picker選擇項目Del();
         public 讀取Picker選擇項目Del foo讀取Picker選擇項目;
         public Action<string> foo分類Picker初始化;
         public Action<string> foo頁面Title初始化;
+        TravelExpense fooTravelExpense;
 
-        public TravelExpensesPageViewModel(INavigationService navigationService,IEventAggregator eventAggregator)
+        public TravelExpensesPageViewModel(INavigationService navigationService, IEventAggregator eventAggregator,
+            IPageDialogService dialogService)
         {
             _navigationService = navigationService;
-
+            _dialogService = dialogService;
             _eventAggregator = eventAggregator;
             儲存Command = new DelegateCommand(儲存);
             刪除Command = new DelegateCommand(刪除);
+            取消Command = new DelegateCommand(取消);
+        }
+
+        private async void 取消()
+        {
+            if (檢查資料是否有異動() == true)
+            {
+                var fooAnswer = await _dialogService.DisplayAlertAsync("警告", "資料已經有異動，您確定要取消此次資料輸入嗎?", "是", "否");
+                if(fooAnswer == true)
+                {
+                    await _navigationService.GoBackAsync();
+                }
+            }
+            else
+            {
+                await _navigationService.GoBackAsync();
+            }
+        }
+
+        private bool 檢查資料是否有異動()
+        {
+            bool fooIsChange = false;
+
+            Category = foo讀取Picker選擇項目();
+            if (fooTravelExpense.Category != Category)
+            {
+                fooIsChange = true;
+            }
+            else if (fooTravelExpense.Domestic != Domestic)
+            {
+                fooIsChange = true;
+            }
+            else if (fooTravelExpense.Expense != Expense)
+            {
+                fooIsChange = true;
+            }
+            else if (fooTravelExpense.HasDocument != HasDocument)
+            {
+                fooIsChange = true;
+            }
+            else if (fooTravelExpense.Location != Location)
+            {
+                fooIsChange = true;
+            }
+            else if (fooTravelExpense.Memo != Memo)
+            {
+                fooIsChange = true;
+            }
+            else if (fooTravelExpense.Title != Title)
+            {
+                fooIsChange = true;
+            }
+            else if (fooTravelExpense.TravelDate.Date != TravelDate.Date)
+            {
+                fooIsChange = true;
+            }
+            return fooIsChange;
         }
 
         private async void 刪除()
@@ -207,9 +270,8 @@ namespace XFDoggy.ViewModels
 
         private async void 儲存()
         {
-            TravelExpense travelExpense;
             Category = foo讀取Picker選擇項目();
-            travelExpense = new TravelExpense
+            fooTravelExpense = new TravelExpense
             {
                 ID = ID,
                 Account = AppData.Account,
@@ -225,11 +287,11 @@ namespace XFDoggy.ViewModels
             };
             if (紀錄處理模式 == "新增")
             {
-                await AppData.DataService.PostTravelExpensesAsync(travelExpense);
+                await AppData.DataService.PostTravelExpensesAsync(fooTravelExpense);
             }
             else
             {
-                await AppData.DataService.PutTravelExpensesAsync(travelExpense);
+                await AppData.DataService.PutTravelExpensesAsync(fooTravelExpense);
             }
             var fooItems = (await AppData.DataService.GetTravelExpensesAsync(AppData.Account)).ToList();
             AppData.AllTravelExpense = fooItems;
@@ -244,7 +306,7 @@ namespace XFDoggy.ViewModels
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             紀錄處理模式 = parameters["模式"] as string;
-            var fooTravelExpense = parameters["TravelExpense"] as TravelExpense;
+            fooTravelExpense = parameters["TravelExpense"] as TravelExpense;
             ID = fooTravelExpense.ID;
             Category = fooTravelExpense.Category;
             Domestic = fooTravelExpense.Domestic;

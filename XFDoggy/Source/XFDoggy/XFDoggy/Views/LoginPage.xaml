@@ -37,7 +37,7 @@
       <Button Text="登入" 
              Margin="0,40,0,0"
              HorizontalOptions="Center"
-             BackgroundColor="{StaticResource ButtonBackgroundColor}"
+             BackgroundColor="{StaticResource ToolbarBackgroundColor}"
              TextColor="{StaticResource ButtonTextColor}"
              Command="{Binding 登入Command}"
              WidthRequest="200"

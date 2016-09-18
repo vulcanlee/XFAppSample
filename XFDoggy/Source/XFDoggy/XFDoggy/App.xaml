@@ -6,7 +6,8 @@
   <Application.Resources>
     <ResourceDictionary>
       <Color x:Key="PageBackgroundColor">#FFEFD4</Color>
-      <Color x:Key="ButtonBackgroundColor">#f08915</Color>
+      <Color x:Key="ToolbarBackgroundColor">#f08915</Color>
+      <Color x:Key="BottomCommandBackgroundColor">#ffcc92</Color>
       <Color x:Key="ButtonTextColor">#fff</Color>
     </ResourceDictionary>
 

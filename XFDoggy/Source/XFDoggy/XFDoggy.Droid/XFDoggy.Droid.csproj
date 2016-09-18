@@ -167,6 +167,7 @@
     <AndroidResource Include="Resources\drawable\Save.png" />
     <AndroidResource Include="Resources\drawable\Add.png" />
     <AndroidResource Include="Resources\drawable\Delete.png" />
+    <AndroidResource Include="Resources\drawable\Cancel.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFDoggy\XFDoggy.csproj">
