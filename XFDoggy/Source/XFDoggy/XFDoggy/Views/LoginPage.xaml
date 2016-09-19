@@ -9,7 +9,7 @@
   <Grid>
     <StackLayout
       VerticalOptions="Center" HorizontalOptions="Center"
-      Margin="20,0"
+      Margin="70,0"
       >
       <Grid>
         <Grid.RowDefinitions>
@@ -18,7 +18,7 @@
           <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="50"/>
+          <ColumnDefinition Width="35"/>
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 

@@ -5,6 +5,7 @@
                 prism:ViewModelLocator.AutowireViewModel="True"
                 x:Class="XFDoggy.Views.NaviPage"
                 NavigationPage.BarBackgroundColor="{StaticResource ToolbarBackgroundColor}"
+                NavigationPage.BarTextColor="#FFF"
   >
 
 </NavigationPage>
