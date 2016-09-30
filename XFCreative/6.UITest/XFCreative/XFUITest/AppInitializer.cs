@@ -14,7 +14,7 @@ namespace XFUITest
             {
                 return ConfigureApp
                     .Android
-                    .ApkFile("../../../XFCreative/XFCreative.Droid/bin/Release/XFCreative.Droid-Signed.apk")
+                    .ApkFile("../../../XFCreative/XFCreative.Droid/bin/Release/XFCreative.Droid.apk")
                     .EnableLocalScreenshots()
                     .StartApp();
             }

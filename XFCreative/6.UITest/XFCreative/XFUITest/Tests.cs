@@ -75,7 +75,7 @@ namespace XFUITest
             #endregion
 
             #region 查看某筆資料明細
-            app.Tap("大瀚高雄會議中心");
+            app.Tap("大瀚放空間 Fun space");
             result = app.WaitForElement((x => x.Marked("所屬單位")));
             Assert.IsTrue(result.Any(), "無法顯示 大瀚高雄會議中心明細資料");
             app.Screenshot("資料明細頁面");
